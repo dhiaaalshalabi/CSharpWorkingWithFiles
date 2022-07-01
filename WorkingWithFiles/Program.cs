@@ -1,19 +1,9 @@
-﻿// The Directory class
-Directory.CreateDirectory(@"c:\temp\folder1");
-var files = Directory.GetFiles(@"c:\src","*.bat",SearchOption.AllDirectories);
-foreach (var file in files)
-{
-    Console.WriteLine(file);
-}
+﻿var path = @"c:\src\flutter\analysis_options.yaml";
+var extention = path.IndexOf('.');
 
-var directories = Directory.GetDirectories(@"c:\src", "*.*",SearchOption.AllDirectories);
-foreach(var directory in directories){
-    Console.WriteLine(directory);
-}
+Path.GetExtension(path);
 
-Directory.Exists("...path");
-
-// The DirectoryInfo
-var directoryInfo = new DirectoryInfo("...");
-directoryInfo.GetFiles();
-directoryInfo.GetDirectories();
+Console.WriteLine("Extension: "+Path.GetExtension(path));
+Console.WriteLine("File Name: "+Path.GetFileName(path));
+Console.WriteLine("File Name Without Extension: "+Path.GetFileNameWithoutExtension(path));
+Console.WriteLine("Directory Name: "+Path.GetDirectoryName(path));
