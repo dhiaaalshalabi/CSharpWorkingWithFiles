@@ -1,20 +1,19 @@
-﻿// The File class
-var path = @"c:\somefile\myfile\myfile.jpg";
-File.Copy(@"c:\temp\myfile\myfile.jpg",@"d:\temp\myfile.jpg",true);
-File.Delete(path);
-if (File.Exists(path))
+﻿// The Directory class
+Directory.CreateDirectory(@"c:\temp\folder1");
+var files = Directory.GetFiles(@"c:\src","*.bat",SearchOption.AllDirectories);
+foreach (var file in files)
 {
-    //
+    Console.WriteLine(file);
 }
 
-var content = File.ReadAllText(path);
- 
-// The FileInfo class
- 
-var fileInfo = new FileInfo(path);
-fileInfo.CopyTo("...");
-fileInfo.Delete();
-if (fileInfo.Exists)
-{
-    //
+var directories = Directory.GetDirectories(@"c:\src", "*.*",SearchOption.AllDirectories);
+foreach(var directory in directories){
+    Console.WriteLine(directory);
 }
+
+Directory.Exists("...path");
+
+// The DirectoryInfo
+var directoryInfo = new DirectoryInfo("...");
+directoryInfo.GetFiles();
+directoryInfo.GetDirectories();
